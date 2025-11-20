@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Allan Meli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Project Modal Styles */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background: var(--card);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            position: relative;
+            animation: fadeUp 0.5s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .client-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .benefit-card {
+            background: rgba(0, 234, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-section {
+            margin-bottom: 2rem;
+        }
+        
+        .project-section h2 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg);
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        .feature-highlight {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+        
+        .feature-highlight .icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem auto;
+                padding: 1.5rem;
+            }
+            
+            .client-benefits {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Allan Meli</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="ai-projects.html">AI Projects</a>
+                <a href="cybersecurity.html">Cybersecurity</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <section class="projects-hero">
+        <div class="container">
+            <div class="section-title animate-fade-up">
+                <h1>Projects That Deliver Results</h1>
+                <p>See how I've helped solve real problems with technology solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-grid">
+        <div class="container">
+            <div class="projects-filter animate-fade-up" style="margin-bottom: 3rem; text-align: center;">
+                <button class="btn filter-btn active" data-filter="all">All Projects</button>
+                <button class="btn filter-btn" data-filter="web">Web Development</button>
+                <button class="btn filter-btn" data-filter="ai">AI/ML</button>
+                <button class="btn filter-btn" data-filter="security">Cybersecurity</button>
+            </div>
+
+            <div class="grid-2 animate-stagger" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <!-- Project 1: Recipe App -->
+                <div class="card project-card hover-lift" data-category="web">
+                    <div class="project-image" style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                        Recipe Sharing Platform
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Django</span>
+                        <span class="project-tag">PostgreSQL</span>
+                        <span class="project-tag">AWS</span>
+                    </div>
+                    <h3>Django Recipe Sharing Platform</h3>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">A community platform for food enthusiasts to share and discover recipes with social features.</p>
+                    
+                    <div class="project-highlights">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">User profiles & authentication</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Recipe creation & sharing</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Mobile-responsive design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-outline view-details-btn" data-project="recipe" style="padding: 8px 16px;">View Details</button>
+                        <a href="https://github.com/allankiptanui/recipe-app" class="btn" style="padding: 8px 16px;" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Energy Forecasting -->
+                <div class="card project-card hover-lift" data-category="ai">
+                    <div class="project-image" style="height: 200px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                        Energy Forecasting AI
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">TensorFlow</span>
+                        <span class="project-tag">LSTM</span>
+                    </div>
+                    <h3>Hybrid Energy Forecasting System</h3>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Advanced AI system predicting energy consumption with 95% accuracy using multiple models.</p>
+                    
+                    <div class="project-highlights">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Multiple AI models combined</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">95% prediction accuracy</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Time series analysis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-outline view-details-btn" data-project="energy" style="padding: 8px 16px;">View Details</button>
+                        <a href="#" class="btn" style="padding: 8px 16px;" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Cybersecurity Toolkit -->
+                <div class="card project-card hover-lift" data-category="security">
+                    <div class="project-image" style="height: 200px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                        Security Toolkit
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Kali Linux</span>
+                        <span class="project-tag">Security</span>
+                    </div>
+                    <h3>Cybersecurity Assessment Toolkit</h3>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Comprehensive security tools for penetration testing and vulnerability assessment.</p>
+                    
+                    <div class="project-highlights">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Penetration testing</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Vulnerability scanning</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Security automation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-outline view-details-btn" data-project="security" style="padding: 8px 16px;">View Details</button>
+                        <a href="#" class="btn" style="padding: 8px 16px;" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Automata Simulator -->
+                <div class="card project-card hover-lift" data-category="web">
+                    <div class="project-image" style="height: 200px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                        Automata Simulator
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Algorithms</span>
+                        <span class="project-tag">CLI</span>
+                    </div>
+                    <h3>DFA/NFA Automata Simulator</h3>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Command-line automata simulator for processing input strings with state machine logic.</p>
+                    
+                    <div class="project-highlights">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">State machine design</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">File-based configurations</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="color: var(--accent);">✓</span>
+                            <span style="font-size: 0.9rem;">Algorithm implementation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-outline view-details-btn" data-project="automata" style="padding: 8px 16px;">View Details</button>
+                        <a href="#" class="btn" style="padding: 8px 16px;" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe App Modal -->
+    <div id="recipe-modal" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            
+            <div class="project-header" style="text-align: center; margin-bottom: 2rem;">
+                <h1>Recipe Sharing Platform</h1>
+                <p style="color: var(--muted); font-size: 1.2rem;">Building communities around food and cooking</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Challenge</h2>
+                <p>Food enthusiasts needed a simple way to share recipes and connect with other cooks, but existing platforms were either too complicated or lacked community features that made sharing enjoyable.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Solution</h2>
+                <p>I built an intuitive recipe sharing platform that makes it easy for anyone to share their culinary creations, discover new recipes, and connect with fellow food lovers in a welcoming community.</p>
+                
+                <div class="client-benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👥</div>
+                        <h3>Build Community</h3>
+                        <p>Connect with food enthusiasts and share cooking experiences in a friendly environment</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💾</div>
+                        <h3>Organize Recipes</h3>
+                        <p>Keep all your favorite recipes organized and accessible in one central location</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📱</div>
+                        <h3>Access Anywhere</h3>
+                        <p>Use on any device - perfect for cooking in the kitchen with your phone or tablet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>🎯 Key Features That Matter</h2>
+                <div class="feature-highlight">
+                    <span class="icon">✓</span>
+                    <div>
+                        <strong>Easy Recipe Sharing</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Simple, intuitive forms to add recipes with ingredients, steps, and cooking tips</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">✓</span>
+                    <div>
+                        <strong>User Profiles & Reputation</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Build your cooking reputation, collect favorites, and follow other chefs you admire</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">✓</span>
+                    <div>
+                        <strong>Mobile-First Design</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Works perfectly on phones, tablets, and computers - optimized for kitchen use</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>📊 Project Impact</h2>
+                <div class="project-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Recipes Shared</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4.5/5</span>
+                        <span class="stat-label">User Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #333;">
+                <h3>Ready to Build Something Similar?</h3>
+                <p style="color: var(--muted); margin-bottom: 1.5rem;">Let's discuss how I can help bring your idea to life</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn">Start a Conversation</a>
+                    <button class="btn btn-outline close-modal-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Energy Forecasting Modal -->
+    <div id="energy-modal" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            
+            <div class="project-header" style="text-align: center; margin-bottom: 2rem;">
+                <h1>Hybrid Energy Forecasting System</h1>
+                <p style="color: var(--muted); font-size: 1.2rem;">Predicting energy needs with AI accuracy</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Challenge</h2>
+                <p>Energy companies struggle to accurately predict consumption patterns, leading to inefficiencies, wasted resources, and higher costs for both providers and consumers.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Solution</h2>
+                <p>I developed a sophisticated AI system that combines multiple forecasting models to predict energy consumption with unprecedented accuracy, helping optimize resource allocation and reduce waste.</p>
+                
+                <div class="client-benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3>Cost Savings</h3>
+                        <p>Reduce energy waste and optimize resource allocation for significant cost reductions</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📈</div>
+                        <h3>Better Planning</h3>
+                        <p>Accurate predictions enable smarter energy distribution and infrastructure planning</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌱</div>
+                        <h3>Sustainability</h3>
+                        <p>Minimize energy waste and support environmental sustainability goals</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>🎯 How It Works</h2>
+                <div class="feature-highlight">
+                    <span class="icon">🔮</span>
+                    <div>
+                        <strong>Multiple AI Models Combined</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">LSTM networks, CNN-GRU-Attention mechanisms, and traditional ARIMA models work together for superior accuracy</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">📊</span>
+                    <div>
+                        <strong>95% Prediction Accuracy</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Consistently accurate forecasts that outperform traditional single-model approaches</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">⏰</span>
+                    <div>
+                        <strong>Real-time Adaptation</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Continuously learns from new data to improve predictions over time</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>📊 Project Impact</h2>
+                <div class="project-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Accuracy Rate</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Models Combined</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">12K+</span>
+                        <span class="stat-label">Data Points</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15%</span>
+                        <span class="stat-label">Cost Reduction</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #333;">
+                <h3>Need AI Solutions for Your Business?</h3>
+                <p style="color: var(--muted); margin-bottom: 1.5rem;">Let's explore how AI can solve your specific challenges</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn">Discuss AI Solutions</a>
+                    <button class="btn btn-outline close-modal-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cybersecurity Toolkit Modal -->
+    <div id="security-modal" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            
+            <div class="project-header" style="text-align: center; margin-bottom: 2rem;">
+                <h1>Cybersecurity Assessment Toolkit</h1>
+                <p style="color: var(--muted); font-size: 1.2rem;">Protecting businesses from digital threats</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Challenge</h2>
+                <p>Many businesses lack the resources for comprehensive security testing, leaving them vulnerable to cyber attacks that can compromise sensitive data and disrupt operations.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Solution</h2>
+                <p>I created a comprehensive cybersecurity toolkit that automates security assessments, making professional-grade protection accessible to businesses of all sizes.</p>
+                
+                <div class="client-benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🛡️</div>
+                        <h3>Proactive Protection</h3>
+                        <p>Identify vulnerabilities before attackers can exploit them</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3>Cost-Effective</h3>
+                        <p>Enterprise-level security testing without enterprise costs</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Time-Saving</h3>
+                        <p>Automated scans and reports save dozens of hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>🎯 Key Security Features</h2>
+                <div class="feature-highlight">
+                    <span class="icon">🔍</span>
+                    <div>
+                        <strong>Vulnerability Scanning</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Automated detection of security weaknesses across networks and applications</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>Penetration Testing</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Simulate real-world attacks to identify exploitable vulnerabilities</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">📋</span>
+                    <div>
+                        <strong>Compliance Reporting</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Generate detailed reports for regulatory compliance and management review</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>📊 Security Impact</h2>
+                <div class="project-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Threat Detection</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Vulnerability Types</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-label">Time Saved</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Monitoring</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #333;">
+                <h3>Concerned About Your Security?</h3>
+                <p style="color: var(--muted); margin-bottom: 1.5rem;">Let's assess your security needs and protect your business</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn">Get Security Assessment</a>
+                    <button class="btn btn-outline close-modal-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Automata Simulator Modal -->
+    <div id="automata-modal" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            
+            <div class="project-header" style="text-align: center; margin-bottom: 2rem;">
+                <h1>DFA/NFA Automata Simulator</h1>
+                <p style="color: var(--muted); font-size: 1.2rem;">Advanced computational theory made accessible</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Challenge</h2>
+                <p>Students and researchers working with finite automata needed a reliable tool to test and visualize state machines, but existing solutions were either too basic or overly complex.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Solution</h2>
+                <p>I developed a powerful yet user-friendly automata simulator that makes working with deterministic and non-deterministic finite automata intuitive and educational.</p>
+                
+                <div class="client-benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎓</div>
+                        <h3>Educational Tool</h3>
+                        <p>Perfect for students learning computational theory and automata concepts</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔧</div>
+                        <h3>Research Utility</h3>
+                        <p>Valuable for researchers testing complex automata designs and algorithms</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Efficient Testing</h3>
+                        <p>Quickly validate automata designs without manual calculation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>🎯 Core Capabilities</h2>
+                <div class="feature-highlight">
+                    <span class="icon">🔄</span>
+                    <div>
+                        <strong>State Machine Simulation</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Process input strings through DFA and NFA configurations with step-by-step visualization</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">📁</span>
+                    <div>
+                        <strong>File-Based Configuration</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Load complex automata definitions from structured text files for repeatable testing</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Accept/Reject Analysis</strong>
+                        <p style="color: var(--muted); margin: 0.25rem 0 0 0;">Clear determination of whether input strings are accepted by the automata</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>📊 Project Value</h2>
+                <div class="project-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">97%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2x</span>
+                        <span class="stat-label">Learning Speed</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Automata Types</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Input Length</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #333;">
+                <h3>Need Custom Algorithm Solutions?</h3>
+                <p style="color: var(--muted); margin-bottom: 1.5rem;">Let's discuss how computational solutions can benefit your projects</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn">Discuss Your Needs</a>
+                    <button class="btn btn-outline close-modal-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/allan-kiptanui" target="_blank">LinkedIn</a>
+                <a href="https://github.com/allankiptanui" target="_blank">GitHub</a>
+                <a href="mailto:allankiptanui01@gmail.com">Email</a>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:allankiptanui01@gmail.com">allankiptanui01@gmail.com</a>
+                <a href="tel:+254712510424">+254 712 510 424</a>
+            </div>
+            <p>&copy; 2024 Allan Meli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Project Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all view details buttons
+            const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+            const closeModalBtns = document.querySelectorAll('.close-modal, .close-modal-btn');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            // Add click event to each view details button
+            viewDetailsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const modal = document.getElementById(projectId + '-modal');
+                    
+                    if (modal) {
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                    }
+                });
+            });
+            
+            // Add click event to close buttons
+            closeModalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.project-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto'; // Re-enable scrolling
+                    }
+                });
+            });
+            
+            // Close modal when clicking outside content
+            window.addEventListener('click', function(event) {
+                if (event.target.classList.contains('project-modal')) {
+                    event.target.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    const openModal = document.querySelector('.project-modal[style="display: block;"]');
+                    if (openModal) {
+                        openModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+            
+            // Project filtering
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            card.classList.add('animate-fade-up');
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

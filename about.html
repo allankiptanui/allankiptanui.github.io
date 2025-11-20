@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Allan Meli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav class="container">
+        <a href="index.html" class="logo">Allan Meli</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="ai-projects.html">AI Projects</a>
+            <a href="cybersecurity.html">Cybersecurity</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+</header>
+
+    <section class="about-hero">
+        <div class="container">
+            <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="animate-slide-left">
+                    <img src="images/profile.jpg" alt="Allan Meli" 
+                         style="width: 100%; border-radius: 10px; border: 3px solid var(--accent);">
+                </div>
+                <div class="animate-slide-right">
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">About Me</h1>
+                    <p style="font-size: 1.2rem; color: var(--muted); margin-bottom: 2rem;">
+                        I'm Allan Meli, a dedicated Software Engineer and graduate student, specializing in Django backend, AI/ML, and cybersecurity. 
+                        I build scalable, secure web applications using Python, implement hybrid forecasting models, and run penetration testing simulations.
+                    </p>
+                    <div class="contact-info" style="justify-content: start; gap: 2rem;">
+                        <a href="mailto:allankiptanui01@gmail.com" class="btn">Email Me</a>
+                        <a href="resume.html" class="btn btn-outline">View Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+                <p>My expertise spans across multiple domains of software development and security</p>
+            </div>
+            
+            <div class="grid-3 animate-stagger" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <div class="card">
+                    <h3>Backend Development</h3>
+                    <ul>
+                        <li>Django & Django REST Framework</li>
+                        <li>Python & Flask</li>
+                        <li>PostgreSQL & MySQL</li>
+                        <li>RESTful APIs</li>
+                        <li>Authentication & Authorization</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>AI/ML & Data Science</h3>
+                    <ul>
+                        <li>Machine Learning (scikit-learn)</li>
+                        <li>Deep Learning (TensorFlow, PyTorch)</li>
+                        <li>Time Series Forecasting</li>
+                        <li>Data Visualization</li>
+                        <li>Statistical Analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Cybersecurity</h3>
+                    <ul>
+                        <li>Penetration Testing</li>
+                        <li>Vulnerability Assessment</li>
+                        <li>Network Security</li>
+                        <li>Security Best Practices</li>
+                        <li>Privacy Research</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/allan-kiptanui" target="_blank">LinkedIn</a>
+                <a href="https://github.com/allankiptanui" target="_blank">GitHub</a>
+                <a href="mailto:allankiptanui01@gmail.com">Email</a>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:allankiptanui01@gmail.com">allankiptanui01@gmail.com</a>
+                <a href="tel:+254712510424">+254 712 510 424</a>
+            </div>
+            <p>&copy; 2024 Allan Meli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

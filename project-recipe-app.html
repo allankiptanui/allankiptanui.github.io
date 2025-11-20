@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App - Project Details | Allan Meli</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .project-section {
+            margin-bottom: 3rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-tag {
+            background: rgba(0, 234, 255, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 234, 255, 0.3);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .code-snippet {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .back-to-projects {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">Allan Meli</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../services.html">Services</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../ai-projects.html">AI Projects</a>
+                <a href="../cybersecurity.html">Cybersecurity</a>
+                <a href="../resume.html">Resume</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="../projects.html" class="back-to-projects">
+                ← Back to Projects
+            </a>
+            <h1 class="animate-fade-up">Django Recipe Sharing Platform</h1>
+            <p class="animate-fade-up">A full-stack web application for sharing and discovering recipes with social features</p>
+            <div class="project-links animate-fade-up">
+                <a href="https://github.com/allankiptanui/recipe-app" class="btn" target="_blank">View on GitHub</a>
+                <a href="#" class="btn btn-outline">Live Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-details">
+        <div class="container">
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="project-section animate-fade-up">
+                    <h2>Project Overview</h2>
+                    <p>The Recipe Sharing Platform is a comprehensive Django web application that allows users to create, share, and discover recipes. Built with modern web development practices, it includes user authentication, role-based access control, and real-time features.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">HTML/CSS/JavaScript</span>
+                        <span class="tech-tag">AWS EC2</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="project-section animate-fade-up">
+                    <h2>Key Features</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h3>👤 User Authentication</h3>
+                            <p>Secure user registration and login system with email verification and password reset functionality.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🍳 Recipe Management</h3>
+                            <p>Create, read, update, and delete recipes with rich text editing and image uploads.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🔐 Role-based Access</h3>
+                            <p>Different permissions for Admin, Chef, and Viewer roles with appropriate access levels.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>📊 Dashboard Analytics</h3>
+                            <p>Personalized dashboard showing cooking statistics, popular recipes, and user activity.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🔍 Advanced Search</h3>
+                            <p>Search recipes by ingredients, cooking time, difficulty level, and dietary restrictions.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>📱 Responsive Design</h3>
+                            <p>Mobile-first design that works seamlessly across all devices and screen sizes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Implementation -->
+                <div class="project-section animate-fade-up">
+                    <h2>Technical Implementation</h2>
+                    
+                    <h3>Architecture</h3>
+                    <p>The application follows the Model-View-Template (MVT) architecture pattern with a clean separation of concerns:</p>
+                    
+                    <div class="code-snippet">
+                        <h4>Project Structure:</h4>
+                        <pre>
+recipe-app/
+├── recipes/          # Main app for recipe management
+├── users/            # User authentication and profiles
+├── api/              # REST API endpoints
+├── static/           # CSS, JS, images
+├── templates/        # HTML templates
+├── manage.py
+└── requirements.txt
+                        </pre>
+                    </div>
+
+                    <h3>Database Schema</h3>
+                    <p>PostgreSQL database with optimized relationships between users, recipes, categories, and reviews.</p>
+
+                    <div class="code-snippet">
+                        <h4>Core Models Example:</h4>
+                        <pre>
+class Recipe(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    ingredients = models.TextField()
+    instructions = models.TextField()
+    cooking_time = models.IntegerField()
+    difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    profile_picture = models.ImageField(upload_to='profiles/', blank=True)
+    is_chef = models.BooleanField(default=False)
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Challenges & Solutions -->
+                <div class="project-section animate-fade-up">
+                    <h2>Challenges & Solutions</h2>
+                    
+                    <div class="feature-card">
+                        <h3>Challenge: File Upload Security</h3>
+                        <p>Preventing malicious file uploads while allowing legitimate recipe images.</p>
+                        <h4>Solution:</h4>
+                        <p>Implemented server-side file validation checking file types, sizes, and scanning for potential threats.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Challenge: Performance Optimization</h3>
+                        <p>Handling large numbers of recipes and user interactions efficiently.</p>
+                        <h4>Solution:</h4>
+                        <p>Used database indexing, query optimization, and implemented caching for frequently accessed data.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Challenge: Deployment Complexity</h3>
+                        <p>Managing dependencies and environment configurations across development and production.</p>
+                        <h4>Solution:</h4>
+                        <p>Containerized the application using Docker and implemented CI/CD pipelines for automated deployments.</p>
+                    </div>
+                </div>
+
+                <!-- Screenshots -->
+                <div class="project-section animate-fade-up">
+                    <h2>Project Screenshots</h2>
+                    <div class="screenshot-gallery">
+                        <div class="screenshot-placeholder">Recipe Dashboard View</div>
+                        <div class="screenshot-placeholder">Recipe Creation Form</div>
+                        <div class="screenshot-placeholder">User Profile Page</div>
+                        <div class="screenshot-placeholder">Mobile Recipe View</div>
+                    </div>
+                </div>
+
+                <!-- Installation & Setup -->
+                <div class="project-section animate-fade-up">
+                    <h2>Installation & Setup</h2>
+                    <div class="code-snippet">
+                        <h4>Local Development Setup:</h4>
+                        <pre>
+# Clone the repository
+git clone https://github.com/allankiptanui/recipe-app.git
+cd recipe-app
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your database credentials
+
+# Run migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Run development server
+python manage.py runserver
+                        </pre>
+                    </div>
+                </div
