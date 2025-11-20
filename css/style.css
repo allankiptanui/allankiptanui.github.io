@@ -386,3 +386,84 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Reduce default spacing in elements */
+.hero-content br,
+.section-title br {
+    display: none; /* Remove line breaks that create extra space */
+}
+
+/* Compact text elements on mobile */
+@media (max-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 0.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    p, li, span {
+        line-height: 1.4 !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Remove extra margins from specific elements */
+    .hero-content > *,
+    .section-title > * {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Compact list items */
+    ul, ol {
+        padding-left: 1rem !important;
+    }
+    
+    li {
+        margin-bottom: 0.25rem !important;
+    }
+}
+
+/* Ensure proper text spacing hierarchy */
+.section-title h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.section-title p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+/* Mobile text adjustments */
+@media (max-width: 768px) {
+    .section-title h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .section-title p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Ensure all headings are visible */
+    h3 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    h4 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+}
